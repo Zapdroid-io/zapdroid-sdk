@@ -1,0 +1,15 @@
+{
+  "name": "zapdroid-sdk",
+  "version": "1.0.0",
+  "description": "Zapdroid SDK is a comprehensive node package that empowers developers to easily integrate and leverage the robust functionalities of the Zapdroid AI chatbot. This toolkit includes resources for tasks automation, content generation, and research, driving increased productivity and operational efficiency for businesses.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ably": "^1.2.40"
+  }
+}
