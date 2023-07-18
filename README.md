@@ -29,6 +29,8 @@ To create your custom function that can be triggered by Zapdroid chatbot, you ne
 A random number generator is shown below:
 
 ```javascript
+// MAKE SURE ENVIRONMENT VARIABLES ARE AVAILABLE before you require sdk 
+// require('dotenv').config()
 const { createSkill } = require('zapdroid-sdk');
 
 // define required parameters
