@@ -42,4 +42,4 @@ const createSkill = (skill, description, parameters, fn) => {
 }
 
 
-module.exports = { createSkill }
+module.exports = { createSkill, publishOutboundMsg }
