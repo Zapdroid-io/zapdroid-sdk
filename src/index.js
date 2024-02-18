@@ -10,10 +10,42 @@ const publishOutboundMsg = async (user, msg, platformSpecificVars, callback = fa
     //let zapdroidTeamId = process.env.ZAPDROID_TEAM_ID;
     channel.publish('outboundMsg', { user, msg, platformSpecificVars, replyHandler: false, skill: '' });
 };
+const publishOutboundMsg_v2 = async (user, msg, platformSpecificVars, tool, vendorSpecificVars) => {
+    const submitData = async () => {
+        const url = 'https://assistant.services.zapdroid.io/submit-output'; // Replace with your actual endpoint URL
+        const data = {
+            tool_call_id: tool.id,
+            output: msg,
+            threadId: vendorSpecificVars.threadId,
+            runId: vendorSpecificVars.runId
+        };
 
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                console.log('Success:', response.statusText);
+            } else {
+                console.error('Error:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Fetch error:', error);
+        }
+    };
+
+    await submitData(); // Call the function to send the request
+
+};
 const createSkill = (skill, description, parameters, fn) => {
     console.log("create skill: ", { skill })
     const eventName = 'tool:' + skill
+    const eventName2 = 'tool_v2:' + skill
 
     // broadcast skill addition
     channel.publish('skillAvailable', { name: skill, description, parameters });
@@ -22,10 +54,22 @@ const createSkill = (skill, description, parameters, fn) => {
     channel.subscribe(eventName, async (message) => {
         await fn(message, async (replyMsg) => {
             const platformSpecificVars = message.data.platformSpecificVars;
+            //tool, vendorSpecificVars
             const user = message.data.user;
-            await publishOutboundMsg(user, replyMsg, platformSpecificVars)
+            if (typeof message.data.version != 'undefined') {
+                if (message.data.version == 2) {
+                    const tool = message.data.tool;
+                    const vendorSpecificVars = message.data.vendorSpecificVars;
+
+                    await publishOutboundMsg_v2(user, replyMsg, platformSpecificVars, tool, vendorSpecificVars)
+                }
+            } else {
+                await publishOutboundMsg(user, replyMsg, platformSpecificVars)
+
+            }
         })
     })
+
     //let interval = NODE_ENV === 'production' ? 60 : 10;
 
     setInterval(function () {
