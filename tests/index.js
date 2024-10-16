@@ -1,14 +1,11 @@
-//dotenv
-//require('dotenv').config()
-//const { createSkill } = require("../src/index")
+const Zapdroid = require("../src/index")
 
-let ZAPDROID_TEAM_ID='T9ZNY708H-caa0b708ddf77f6c6f15d7eff0dc3312'
-let ZAPDROID_SECRET_KEY='yTu-6A.pB3yrg:Pdw4o2dK7xiQE7OdyOlSLrByBZa0mV6ti7esR1Nnqu4'
+let ZAPDROID_USER='4408a428-f081-704d-7810-a3c37e038cc0'
+let ZAPDROID_SECRET_KEY='yTu-6A.1F2-vw:--bgpSakZ1k848ygL3OXnfMsN0XBY8Oz35Lp7yobxvg'
 
-const ZapdroidSDK = require("../src/index")
-
-let zappy = new ZapdroidSDK()
-zappy.setAuth(ZAPDROID_TEAM_ID, ZAPDROID_SECRET_KEY)
+// Initialize Zapdroid with authentication
+let zappy = new Zapdroid(ZAPDROID_USER, ZAPDROID_SECRET_KEY)
+//console.log({zappy})
 
 let functionName = 'random_number_generator'
 const description = 'This tool is used to generate random number'

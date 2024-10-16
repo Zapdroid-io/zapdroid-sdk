@@ -1,15 +1,19 @@
 {
   "name": "zapdroid-sdk",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "description": "Zapdroid SDK is a comprehensive node package that empowers developers to easily integrate and leverage the robust functionalities of the Zapdroid AI chatbot. This toolkit includes resources for tasks automation, content generation, and research, driving increased productivity and operational efficiency for businesses.",
   "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon tests/index.js"
   },
   "keywords": [],
-  "author": "GameB Ventures Inc.",
+  "author": "Zapdroid, LLC",
   "license": "ISC",
   "dependencies": {
     "ably": "^1.2.40"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }

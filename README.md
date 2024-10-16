@@ -4,11 +4,7 @@ A robust Node.js package that allows easy integration of [Zapdroid](https://www.
 
 ## Requirements
 You should already have Zapdroid installed on your slack workspace or any other supported platform.
-Make sure to have following environment variables:
-```
-ZAPDROID_TEAM_ID=TXXXXX-YYYYYYYYYY
-ZAPDROID_SECRET_KEY=ZZZZZZZZZ
-```
+You'll need your Zapdroid User ID and Secret Key to use this SDK.
 
 You can get these by asking Zapdroid on your slack. In a secure channel ask 'what are my SDK credentials?'
 
