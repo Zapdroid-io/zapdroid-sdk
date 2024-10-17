@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2024-10-17
+
+### Added
+- Added support for fee-based skills
+
 ## [1.0.8] - 2024-10-17
 
 - Added support for agent-specific skills 

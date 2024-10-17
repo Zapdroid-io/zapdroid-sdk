@@ -10,7 +10,6 @@ let zappy = new Zapdroid(ZAPDROID_USER, ZAPDROID_SECRET_KEY)
 let functionName = 'random_number_generator'
 const description = 'This tool is used to generate random number'
 let parameters = {
-    fee: 0.5,
     type: "object",
     properties: {
         min: {
